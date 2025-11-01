@@ -17,7 +17,7 @@ type Props = {
 
 const FuncionariosTable: FC<Props> = ({ data, onEdit, onDelete }) => {
   return (
-    <div className="card table-card">
+  <div className="card table-card full-bleed">
       <div className="card-header">
         <h2>Funcionários</h2>
         <p className="muted">Gerenciar funcionários e usuários do sistema</p>

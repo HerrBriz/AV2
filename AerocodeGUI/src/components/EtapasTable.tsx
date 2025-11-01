@@ -16,7 +16,7 @@ type Props = {
 
 const EtapasTable: FC<Props> = ({ data, onEdit, onDelete }) => {
   return (
-    <div className="card table-card">
+  <div className="card table-card full-bleed">
       <div className="card-header">
         <h2>Etapas de Produção</h2>
         <p className="muted">Gerenciar etapas do processo produtivo</p>

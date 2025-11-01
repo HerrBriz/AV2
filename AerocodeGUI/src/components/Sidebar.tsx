@@ -21,7 +21,6 @@ const Sidebar: FC<Props> = ({ active = 'aeronaves', onNavigate }) => {
       </div>
 
       <nav className="nav">
-        <button className={`nav-item ${active === 'dashboard' ? 'active' : ''}`} onClick={() => nav('dashboard')}>Dashboard</button>
         <button className={`nav-item ${active === 'aeronaves' ? 'active-link' : ''}`} onClick={() => nav('aeronaves')}>Aeronaves</button>
         <button className={`nav-item ${active === 'pecas' ? 'active-link' : ''}`} onClick={() => nav('pecas')}>Peças</button>
         <button className={`nav-item ${active === 'etapas' ? 'active' : ''}`} onClick={() => nav('etapas')}>Etapas de Produção</button>

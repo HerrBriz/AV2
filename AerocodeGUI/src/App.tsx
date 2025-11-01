@@ -10,7 +10,8 @@ import ModalEtapa from './components/ModalEtapa'
 import FuncionariosTable, { type Funcionario } from './components/FuncionariosTable'
 import ModalFuncionario from './components/ModalFuncionario'
 import TestesTable, { type Teste } from './components/TestesTable'
-import ModalTeste from './components/ModalTeste';
+import ModalTeste from './components/ModalTeste'
+import Relatorios from './components/Relatorios'
  
  function App() {
 	const [data, setData] = useState<Aeronave[]>(() => [
@@ -180,19 +181,21 @@ import ModalTeste from './components/ModalTeste';
 						<div className="content-header">
 							<div>
 								<h1>
-									{page === 'pecas' 
-										? 'Peças' 
+									{page === 'pecas'
+										? 'Peças'
 										: page === 'etapas'
 										? 'Etapas'
 										: page === 'funcionarios'
 										? 'Funcionários'
 										: page === 'testes'
 										? 'Testes'
+										: page === 'relatorios'
+										? 'Relatórios'
 										: 'Aeronaves'
 									}
 								</h1>
 								<p className="muted">
-									{page === 'pecas' 
+									{page === 'pecas'
 										? 'Gerenciar peças e componentes'
 										: page === 'etapas'
 										? 'Gerenciar etapas de produção'
@@ -200,23 +203,27 @@ import ModalTeste from './components/ModalTeste';
 										? 'Gerenciar funcionários'
 										: page === 'testes'
 										? 'Gerenciar testes e validações'
+										: page === 'relatorios'
+										? 'Gerar e exportar relatórios de produção'
 										: 'Gerenciar aeronaves em produção'
 									}
 								</p>
 							</div>
 
 							<div>
-								<button className="btn primary" onClick={handleAdd}>+ {
-									page === 'pecas' 
-										? 'Adicionar Peça'
-										: page === 'etapas'
-										? 'Adicionar Etapa'
-										: page === 'funcionarios'
-										? 'Adicionar Funcionário'
-										: page === 'testes'
-										? 'Adicionar Teste'
-										: 'Adicionar Aeronave'
-								}</button>
+								{page !== 'relatorios' && (
+									<button className="btn primary" onClick={handleAdd}>+ {
+										page === 'pecas'
+											? 'Adicionar Peça'
+											: page === 'etapas'
+											? 'Adicionar Etapa'
+											: page === 'funcionarios'
+											? 'Adicionar Funcionário'
+											: page === 'testes'
+											? 'Adicionar Teste'
+											: 'Adicionar Aeronave'
+									}</button>
+								)}
 							</div>
 						</div>
 
@@ -226,6 +233,8 @@ import ModalTeste from './components/ModalTeste';
 											<EtapasTable data={etapas} onEdit={handleEditEtapa} onDelete={handleDeleteEtapa} />
 										) : page === 'funcionarios' ? (
 											<FuncionariosTable data={funcionarios} onEdit={handleEditFuncionario} onDelete={handleDeleteFuncionario} />
+										) : page === 'relatorios' ? (
+											<Relatorios aeronaves={data} pecas={pecas} etapas={etapas} funcionarios={funcionarios} testes={testes} />
 										) : page === 'testes' ? (
 											<TestesTable data={testes} onEdit={handleEditTeste} onDelete={handleDeleteTeste} />
 										) : (

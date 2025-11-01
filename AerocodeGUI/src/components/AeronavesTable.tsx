@@ -17,7 +17,7 @@ type Props = {
 
 const AeronavesTable: FC<Props> = ({ data, onEdit, onDelete }) => {
   return (
-    <div className="card table-card">
+  <div className="card table-card full-bleed">
       <div className="card-header">
         <h2>Aeronaves</h2>
         <p className="muted">Gerenciar aeronaves em produção</p>

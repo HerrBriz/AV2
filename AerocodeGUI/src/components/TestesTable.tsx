@@ -15,7 +15,7 @@ type Props = {
 
 const TestesTable: FC<Props> = ({ data, onEdit, onDelete }) => {
   return (
-    <div className="card table-card">
+  <div className="card table-card full-bleed">
       <div className="card-header">
         <h2>Testes</h2>
         <p className="muted">Gerenciar testes de qualidade e certificação</p>
